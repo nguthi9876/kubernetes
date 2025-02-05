@@ -30,7 +30,7 @@ spec:
 
         - name: pega
 
-          image: pega/platform:latest  # Replace with actual Pega image
+          image: nguthi9876/pegawebapp:871
 
           ports:
 
@@ -52,11 +52,11 @@ spec:
 
             - name: DB_USER
 
-              value: pegauser
+              value: postgres
 
             - name: DB_PASSWORD
 
-              value: pegapassword
+              value: postgres
 
 ---
 
