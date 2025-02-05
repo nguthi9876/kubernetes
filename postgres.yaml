@@ -71,6 +71,14 @@ spec:
             - name: POSTGRES_PASSWORD
 
               value: postgres
+              
+            - JDBC_URL:
+
+              value: jdbc:postgresql://postgres:5432/postgres
+
+            - JDBC_CLASS:
+
+              value: org.postgresql.Driver 
 
           volumeMounts:
 
