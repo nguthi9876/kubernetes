@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: pega
+
+spec:
+
+  replicas: 1
+
+  selector:
+
+    matchLabels:
+
+      app: pega
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: pega
+
+    spec:
+
+      containers:
+
+        - name: pega
+
+          image: pega/platform:latest  # Replace with actual Pega image
+
+          ports:
+
+            - containerPort: 8080
+
+          env:
+
+            - name: DB_HOST
+
+              value: postgres  # Service name of PostgreSQL
+
+            - name: DB_PORT
+
+              value: "5432"
+
+            - name: DB_NAME
+
+              value: pega
+
+            - name: DB_USER
+
+              value: pegauser
+
+            - name: DB_PASSWORD
+
+              value: pegapassword
+
+---
+
+apiVersion: v1
+
+kind: Service
+
+metadata:
+
+  name: pega
+
+spec:
+
+  selector:
+
+    app: pega
+
+  ports:
+
+    - protocol: TCP
+
+      port: 80
+
+      targetPort: 8080
+
+  type: NodePort  # Exposes Pega outside Minikube
