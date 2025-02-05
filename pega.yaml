@@ -58,11 +58,11 @@ spec:
 
               value: postgres
 
-            - JDBC_URL:
+            - name: JDBC_URL
 
               value: jdbc:postgresql://postgres:5432/postgres
 
-            - JDBC_CLASS:
+            - name: JDBC_CLASS
 
               value: org.postgresql.Driver 
 
