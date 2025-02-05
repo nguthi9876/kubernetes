@@ -62,7 +62,7 @@ spec:
 
             - name: POSTGRES_DB
 
-              value: pega
+              value: postgres
 
             - name: POSTGRES_USER
 
