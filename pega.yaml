@@ -36,6 +36,8 @@ spec:
 
             - containerPort: 8080
 
+            - containerPort: 443
+
           env:
 
             - name: DB_HOST
@@ -84,10 +86,24 @@ spec:
 
   ports:
 
-    - protocol: TCP
+    - name: http
+
+      protocol: TCP
 
       port: 80
 
       targetPort: 8080
+
+      nodePort: 30080
+
+    - name: https
+
+      protocol: TCP
+
+      port: 443
+
+      targetPort: 443
+
+      nodePort: 30443
 
   type: NodePort  # Exposes Pega outside Minikube
